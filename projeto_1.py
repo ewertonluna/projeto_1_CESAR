@@ -1,4 +1,4 @@
-from acesso_cep import via_cep
+from helper_functions import *
 #
 # exemplo_de_cadastros = [
 #     {'nome': 'julia', 'email': 'ju', 'senha': '123', 'bairro': 'Prado', 'modo': 'p', 'interesses': ['Cinema', 'Livros']},
@@ -26,8 +26,7 @@ lista_interesses_disponiveis = [
 while True:
   print('*** MENU PRINCIPAL ***')
   print('1 - Cadastro de Usuário')
-
-  print('5 - Fazer login')
+  print('2 - Fazer login')
   print("** Digite 's' para sair **")
 
   opcao = input('>>> ')
@@ -36,56 +35,18 @@ while True:
     break
   else:
     if opcao == '1':
-      usuario = {}
-      nome = input("Nome: ")
-      email = input('Email: ')
-      senha = input('Senha: ')
-      cep = input('CEP: ')
-      modo = input("Motorista (Digite 'm') ou passageiro (Digite 'p')?")
-      bairro = via_cep(cep)
-      usuario['nome'] = nome
-      usuario['email'] = email
-      usuario['senha'] = senha
-      usuario['bairro'] = bairro
-      usuario['modo'] = modo
-
-
-      interesses = []
-
-      while True:
-        print('*** MENU DE INTERESSES ***')
-        for index, interesse in enumerate(lista_interesses_disponiveis, 1):
-          print('{} - {}'.format(index, interesse))
-        print("** Digite 'ok' para concluir **")
-
-        opcao_interesse = input('>>> ') # '1'
-
-        if opcao_interesse.lower() == 'ok':
-          break
-
-        interesse = lista_interesses_disponiveis[int(opcao_interesse) - 1]
-        interesses.append(interesse)
-
-      usuario['interesses'] = interesses
+      usuario = criarUsuario(lista_interesses_disponiveis)
       cadastros.append(usuario)
 
     elif opcao == '2':
       email = input('Digite seu email: ')
       senha = input('Digite sua senha: ')
-      existe_usuario = False
 
-      for usuario in cadastros:
-        email_atual = usuario['email']
-        senha_atual = usuario['senha']
+      usuario_encontrado = buscarUsuario(cadastros, email, senha)
 
-        if email_atual == email and senha_atual == senha:
-          usuario_encontrado = usuario
-          existe_usuario = True
-
-          break
-
-      if not existe_usuario:
+      if not usuario_encontrado:
         print('USUÁRIO NÃO ENCONTRADO')
+        print()
       else:
         if usuario_encontrado['modo'] == 'm':
             while True:
@@ -93,7 +54,7 @@ while True:
                 print('SEJA BEM-VINDO {}'.format(email))
                 print('1 - Ver perfil')
                 print('2 - Ver passageiros disponíveis')
-                print("** Digite 's' para sair **")
+                print("** Digite 's' para voltar ao menu principal **")
                 opcao = input('>>> ')
 
                 if opcao == 's':
