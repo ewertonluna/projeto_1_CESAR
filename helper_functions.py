@@ -4,7 +4,7 @@ def mostrarMenuPrincipal():
     print('*** MENU PRINCIPAL ***')
     print('1 - Cadastro de Usuário')
     print('2 - Fazer login')
-    print("** Digite 's' para sair **")
+    print("** Digite 's' para encerrar o programa **")
 
 def mostrarMenuUsuario(usuario):
     modo = usuario['modo']

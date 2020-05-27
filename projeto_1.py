@@ -1,22 +1,8 @@
+import banco_de_dados
 from helper_functions import *
 
-cadastros = [
-    {'nome': 'Zé', 'email': 'ju', 'senha': '123', 'bairro': 'Prado', 'modo': 'p', 'interesses': ['Cinema', 'Livros']},
-    {'nome': 'Júlia', 'email': 'ju', 'senha': '123', 'bairro': 'Madalena', 'modo': 'p', 'interesses': ['Cinema', 'Livros']},
-]
-
-lista_interesses_disponiveis = [
-  'Cinema',
-  'Novela',
-  'Negócios',
-  'Video Games',
-  'Livros',
-  'Artes Plásticas',
-  'Tecnologia',
-  'Futebol',
-  'Música',
-  'Série',
-]
+cadastros = banco_de_dados.usuarios
+lista_interesses_disponiveis = banco_de_dados.interesses
 
 while True:
   mostrarMenuPrincipal()
@@ -30,9 +16,11 @@ while True:
       usuario = criarUsuario(lista_interesses_disponiveis)
       if usuario:
         cadastros.append(usuario)
-        print('**Usuário criado com sucesso!**')
+        print('** Usuário criado com sucesso! **')
+        print()
       else:
-          print("Só é possível cadastro de email '@cesar.school'")
+          print("Só é possível cadastro de email '@cesar.school'. Tente novamente.")
+          print()
 
     elif opcao == '2':
       email = input('Digite seu email: ')
