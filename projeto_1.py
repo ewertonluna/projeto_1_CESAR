@@ -1,13 +1,9 @@
 from helper_functions import *
-#
-# exemplo_de_cadastros = [
-#     {'nome': 'julia', 'email': 'ju', 'senha': '123', 'bairro': 'Prado', 'modo': 'p', 'interesses': ['Cinema', 'Livros']},
-#     {'nome': 'ewerton', 'email': 'ewe', 'senha': '123', 'bairro': 'Jurere', 'modo': 'm', 'interesses': ['Cinema']},
-#     {'nome': 'ze', 'email': 'ze', 'senha': '123', 'bairro': 'madalena', 'modo': 'm', 'interesses': ['Cinema']},
-#     {'nome': 'ingrid', 'email': 'ewesasd', 'senha': '123', 'bairro': 'Prado', 'modo': 'p', 'interesses': ['Cinema']},
-# ]
 
-cadastros = []
+cadastros = [
+    {'nome': 'Zé', 'email': 'ju', 'senha': '123', 'bairro': 'Prado', 'modo': 'p', 'interesses': ['Cinema', 'Livros']},
+    {'nome': 'Júlia', 'email': 'ju', 'senha': '123', 'bairro': 'Madalena', 'modo': 'p', 'interesses': ['Cinema', 'Livros']},
+]
 
 lista_interesses_disponiveis = [
   'Cinema',
@@ -17,18 +13,14 @@ lista_interesses_disponiveis = [
   'Livros',
   'Artes Plásticas',
   'Tecnologia',
-  'Futebol'
+  'Futebol',
   'Música',
   'Série',
 ]
 
 
 while True:
-  print('*** MENU PRINCIPAL ***')
-  print('1 - Cadastro de Usuário')
-  print('2 - Fazer login')
-  print("** Digite 's' para sair **")
-
+  mostrarMenuPrincipal()
   opcao = input('>>> ')
 
   if opcao == 's':
@@ -36,7 +28,11 @@ while True:
   else:
     if opcao == '1':
       usuario = criarUsuario(lista_interesses_disponiveis)
-      cadastros.append(usuario)
+      if usuario:
+        cadastros.append(usuario)
+        print('**Usuário criado com sucesso!**')
+      else:
+          print("Só é possível cadastro de email '@cesar.school'")
 
     elif opcao == '2':
       email = input('Digite seu email: ')
@@ -51,18 +47,14 @@ while True:
         if usuario_encontrado['modo'] == 'm':
             while True:
                 print()
-                print('SEJA BEM-VINDO {}'.format(email))
-                print('1 - Ver perfil')
-                print('2 - Ver passageiros disponíveis')
-                print("** Digite 's' para voltar ao menu principal **")
+                mostrarMenuUsuario(usuario_encontrado)
                 opcao = input('>>> ')
 
                 if opcao == 's':
                     break
                 elif opcao == '1':
-                    print(usuario)
+                    print(usuario_encontrado)
                 elif opcao == '2':
-                    interesses_em_comum = []
                     for usuario_atual in cadastros:
                         if usuario_atual['modo'] == 'p':
                             if usuario_atual['bairro'] == usuario_encontrado['bairro']:
@@ -71,16 +63,13 @@ while True:
         if usuario_encontrado['modo'] == 'p':
             while True:
                 print()
-                print('SEJA BEM-VINDO {}'.format(email))
-                print('1 - Ver perfil')
-                print('2 - Ver motoristas disponíveis')
-                print("** Digite 's' para sair **")
+                mostrarMenuUsuario(usuario_encontrado)
                 opcao = input('>>> ')
 
                 if opcao == 's':
                     break
                 elif opcao == '1':
-                    print(usuario)
+                    print(usuario_encontrado)
                 elif opcao == '2':
                     for usuario_atual in cadastros:
                         if usuario_atual['modo'] == 'm':

@@ -6,6 +6,17 @@ def mostrarMenuPrincipal():
     print('2 - Fazer login')
     print("** Digite 's' para sair **")
 
+def mostrarMenuUsuario(usuario):
+    modo = usuario['modo']
+    if modo == 'm':
+        modo_oposto = 'passageiros'
+    elif modo == 'p':
+        modo_oposto = 'motoristas'
+    print('SEJA BEM-VINDO {}'.format(usuario['nome'].upper()))
+    print('1 - Ver perfil')
+    print('2 - Ver {} disponíveis'.format(modo_oposto))
+    print("** Digite 's' para voltar ao menu principal **")
+
 def criar_interesses_do_usuario(lista_interesses_disponiveis):
     interesses = []
 
@@ -15,7 +26,7 @@ def criar_interesses_do_usuario(lista_interesses_disponiveis):
           print('{} - {}'.format(index, interesse))
         print("** Digite 'ok' para concluir **")
 
-        opcao_interesse = input('>>> ') # '1'
+        opcao_interesse = input('>>> ')
 
         if opcao_interesse.lower() == 'ok':
           break
@@ -39,19 +50,22 @@ def buscarUsuario(cadastros, email, senha):
 
 def criarUsuario(lista_interesses_disponiveis):
       usuario = {}
-      nome = input("Nome: ")
       email = input('Email: ')
-      senha = input('Senha: ')
-      cep = input('CEP: ')
-      modo = input("Motorista (Digite 'm') ou passageiro (Digite 'p')?")
-      bairro = via_cep(cep)
-      usuario['nome'] = nome
-      usuario['email'] = email
-      usuario['senha'] = senha
-      usuario['bairro'] = bairro
-      usuario['modo'] = modo
+      if '@cesar.school' not in email:
+          return {}
+      else:
+          nome = input("Nome: ")
+          senha = input('Senha: ')
+          cep = input('CEP: ')
+          modo = input("Motorista (Digite 'm') ou passageiro (Digite 'p')? ")
+          bairro = via_cep(cep)
+          usuario['nome'] = nome
+          usuario['email'] = email
+          usuario['senha'] = senha
+          usuario['bairro'] = bairro
+          usuario['modo'] = modo
 
-      interesses = criar_interesses_do_usuario(lista_interesses_disponiveis)
-      usuario['interesses'] = interesses
+          interesses = criar_interesses_do_usuario(lista_interesses_disponiveis)
+          usuario['interesses'] = interesses
 
       return usuario
