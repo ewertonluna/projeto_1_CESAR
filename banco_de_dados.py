@@ -5,7 +5,10 @@ usuarios = [
         'senha': '123',
         'bairro': 'Prado',
         'modo': 'p',
-        'interesses': ['Cinema', 'Livros'],
+        'interesses': [
+            'Cinema',
+            'Livros',
+        ],
     },
     {
         'nome': 'Júlia',
@@ -21,7 +24,11 @@ usuarios = [
         'senha': '123',
         'bairro': 'Prado',
         'modo': 'p',
-        'interesses': ['Negócios', 'Futebol', 'Cinema'],
+        'interesses': [
+            'Negócios',
+            'Futebol',
+            'Cinema',
+        ],
     },
 ]
 

@@ -65,7 +65,11 @@ def criarUsuario(lista_interesses_disponiveis):
           nome = input("Nome: ")
           senha = input('Senha: ')
           cep = input('CEP: ')
-          modo = input("Motorista (Digite 'm') ou passageiro (Digite 'p')? ")
+          while True:
+              modo = input("Motorista (Digite 'm') ou passageiro (Digite 'p')? ")
+              if modo.lower() == 'm' or modo.lower() == 'p':
+                  break
+              print('Input inválido. Tente novamente')
           bairro = via_cep(cep)
           usuario['nome'] = nome
           usuario['email'] = email
