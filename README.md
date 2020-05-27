@@ -9,4 +9,4 @@ O programa faz uso da biblioteca externa *Requests*. Portanto, é preciso fazer 
 
 Para executar o programa:
 1. Baixe todos os arquivos do repositório GitHub;
-2. No Command Prompt (Windows) ou no Terminal (Mac e sistemas Unix) execute o comando "pip install requests".
+2. No Command Prompt (Windows) ou no Terminal (Mac e sistemas Unix) execute o comando `<pip install requests>`.
