@@ -9,12 +9,13 @@ def mostrarMenuPrincipal():
 def mostrarMenuUsuario(usuario):
     modo = usuario['modo']
     if modo == 'm':
-        modo_oposto = 'passageiros'
+        modo_oposto = 'passageiro'
     elif modo == 'p':
-        modo_oposto = 'motoristas'
-    print('SEJA BEM-VINDO {}'.format(usuario['nome'].upper()))
+        modo_oposto = 'motorista'
+    print('SEJA BEM-VINDO, {}!'.format(usuario['nome'].upper()))
     print('1 - Ver perfil')
-    print('2 - Ver {} disponíveis'.format(modo_oposto))
+    print('2 - Ver {}s disponíveis'.format(modo_oposto))
+    print('3 - Trocar para modo {}'.format(modo_oposto))
     print("** Digite 's' para voltar ao menu principal **")
 
 def criar_interesses_do_usuario(lista_interesses_disponiveis):
@@ -38,6 +39,17 @@ def criar_interesses_do_usuario(lista_interesses_disponiveis):
 
     return interesses
 
+def getModoOposto(usuario):
+    if usuario['modo'] == 'm':
+        return 'p'
+    return 'm'
+
+def mudarModoUsuario(usuario):
+    if usuario['modo'] == 'm':
+        usuario['modo'] = 'p'
+    else:
+        usuario['modo'] = 'm'
+
 def buscarUsuario(cadastros, email, senha):
     for usuario in cadastros:
         email_atual = usuario['email']
@@ -48,12 +60,14 @@ def buscarUsuario(cadastros, email, senha):
 
     return None
 
+
 def getPerfilUsuario(usuario):
     nome = usuario['nome']
     email = usuario['email']
+    modo = usuario['modo']
     bairro = usuario['bairro']
     interesses = usuario['interesses']
-    return f'Nome: {nome}, Email: {email}, Bairro: {bairro}, Interesses: {interesses}'
+    return f'Nome: {nome}, Email: {email}, Modo: {modo}, Bairro: {bairro}, Interesses: {interesses}'
 
 
 def criarUsuario(lista_interesses_disponiveis):

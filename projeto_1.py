@@ -16,7 +16,7 @@ while True:
       usuario = criarUsuario(lista_interesses_disponiveis)
       if usuario:
         cadastros.append(usuario)
-        print('** Usuário criado com sucesso! **')
+        print('** Usuário cadastrado com sucesso! **')
         print()
       else:
           print("Só é possível cadastro de email '@cesar.school'. Tente novamente.")
@@ -32,36 +32,26 @@ while True:
         print('USUÁRIO NÃO ENCONTRADO')
         print()
       else:
-        if usuario_encontrado['modo'] == 'm':
-            while True:
-                print()
-                mostrarMenuUsuario(usuario_encontrado)
-                opcao = input('>>> ')
+          while True:
+              print()
+              mostrarMenuUsuario(usuario_encontrado)
+              opcao = input('>>> ')
 
-                if opcao == 's':
-                    break
-                elif opcao == '1':
-                    perfilUsuario = getPerfilUsuario(usuario_encontrado)
-                    print(perfilUsuario)
-                elif opcao == '2':
-                    for usuario_atual in cadastros:
-                        if usuario_atual['modo'] == 'p':
-                            if usuario_atual['bairro'] == usuario_encontrado['bairro']:
-                                print('Nome: {}, Bairro: {}, Interesses: {}'.format(usuario_atual['nome'], usuario_atual['bairro'], usuario_atual['interesses']))
+              if opcao == 's':
+                  break
 
-        if usuario_encontrado['modo'] == 'p':
-            while True:
-                print()
-                mostrarMenuUsuario(usuario_encontrado)
-                opcao = input('>>> ')
+              elif opcao == '1':
+                  perfilUsuario = getPerfilUsuario(usuario_encontrado)
+                  print(perfilUsuario)
 
-                if opcao == 's':
-                    break
-                elif opcao == '1':
-                    perfilUsuario = getPerfilUsuario(usuario_encontrado)
-                    print(perfilUsuario)
-                elif opcao == '2':
-                    for usuario_atual in cadastros:
-                        if usuario_atual['modo'] == 'm':
-                            if usuario_atual['bairro'] == usuario_encontrado['bairro']:
-                                print('Nome: {}, Bairro: {}, Interesses: {}'.format(usuario_atual['nome'], usuario_atual['bairro'], usuario_atual['interesses']))
+              elif opcao == '2':
+                  modo_oposto = getModoOposto(usuario_encontrado)
+                  for usuario_atual in cadastros:
+                      if usuario_atual['modo'] == modo_oposto:
+                          if usuario_atual['bairro'] == usuario_encontrado['bairro']:
+                              print('Nome: {}, Bairro: {}, Interesses: {}'.format(usuario_atual['nome'], usuario_atual['bairro'], usuario_atual['interesses']))
+
+              elif opcao == '3':
+                modo_oposto = getModoOposto(usuario_encontrado)
+                mudarModoUsuario(usuario_encontrado)
+                print(f"Agora você está no modo '{modo_oposto}'!")
