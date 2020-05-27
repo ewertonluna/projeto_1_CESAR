@@ -25,6 +25,7 @@ while True:
   if opcao == 's':
     break
   else:
+
     if opcao == '1':
       usuario = criarUsuario(lista_interesses_disponiveis)
       if usuario:
@@ -52,7 +53,8 @@ while True:
                 if opcao == 's':
                     break
                 elif opcao == '1':
-                    print(usuario_encontrado)
+                    perfilUsuario = getPerfilUsuario(usuario_encontrado)
+                    print(perfilUsuario)
                 elif opcao == '2':
                     for usuario_atual in cadastros:
                         if usuario_atual['modo'] == 'p':
@@ -68,7 +70,8 @@ while True:
                 if opcao == 's':
                     break
                 elif opcao == '1':
-                    print(usuario_encontrado)
+                    perfilUsuario = getPerfilUsuario(usuario_encontrado)
+                    print(perfilUsuario)
                 elif opcao == '2':
                     for usuario_atual in cadastros:
                         if usuario_atual['modo'] == 'm':

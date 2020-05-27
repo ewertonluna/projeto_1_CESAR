@@ -48,6 +48,14 @@ def buscarUsuario(cadastros, email, senha):
 
     return None
 
+def getPerfilUsuario(usuario):
+    nome = usuario['nome']
+    email = usuario['email']
+    bairro = usuario['bairro']
+    interesses = usuario['interesses']
+    return f'Nome: {nome}, Email: {email}, Bairro: {bairro}, Interesses: {interesses}'
+
+
 def criarUsuario(lista_interesses_disponiveis):
       usuario = {}
       email = input('Email: ')
