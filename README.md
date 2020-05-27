@@ -2,7 +2,7 @@
 
 ## Instruções Iniciais
 - **Arquivo de entrada:** projeto_1.py.</br>
-- **Arquivos auxiliares:** helper_functions.py e acesso_cep.py.</br>
+- **Arquivos auxiliares:** helper_functions.py, banco_de_dados.py e acesso_cep.py.</br>
 
 Logo, o arquivo a ser executado é projeto_1.py. Os demais foram criados com o intuito de deixar o módulo principal mais organizado.
 **O programa faz uso da biblioteca externa *Requests***. Portanto, é preciso fazer a instalação deste na sua máquina. Segue a instrução abaixo:
