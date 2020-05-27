@@ -18,7 +18,6 @@ lista_interesses_disponiveis = [
   'Série',
 ]
 
-
 while True:
   mostrarMenuPrincipal()
   opcao = input('>>> ')
