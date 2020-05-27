@@ -14,8 +14,8 @@ usuarios = [
         'nome': 'Júlia',
         'email': 'julia@cesar.school',
         'senha': '123',
-        'bairro': 'Madalena',
-        'modo': 'p',
+        'bairro': 'Prado',
+        'modo': 'm',
         'interesses': ['Séries'],
     },
     {
