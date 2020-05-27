@@ -1,4 +1,4 @@
-# Aplicação de CLI - Grupo Paseo
+# **Aplicação de CLI - Grupo Paseo**
 
 ## Instruções Iniciais
 - **Arquivo de entrada:** projeto_1.py.</br>
