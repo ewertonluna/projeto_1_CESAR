@@ -1,4 +1,5 @@
 import banco_de_dados
+from time import sleep
 from helper_functions import *
 
 cadastros = banco_de_dados.usuarios
@@ -45,10 +46,13 @@ while True:
                   print(perfilUsuario)
 
               elif opcao == '2':
+                  print('Buscando...')
+                  sleep(1)
                   modo_oposto = getModoOposto(usuario_encontrado)
                   for usuario_atual in cadastros:
                       if usuario_atual['modo'] == modo_oposto:
                           if usuario_atual['bairro'] == usuario_encontrado['bairro']:
+                              sleep(1)
                               print('Nome: {}, Bairro: {}, Interesses: {}'.format(usuario_atual['nome'], usuario_atual['bairro'], usuario_atual['interesses']))
 
               elif opcao == '3':

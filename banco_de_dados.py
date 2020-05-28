@@ -30,6 +30,27 @@ usuarios = [
             'Cinema',
         ],
     },
+    {
+        'nome': 'Fabíola',
+        'email': 'fabiola@cesar.school',
+        'senha': '123',
+        'bairro': 'Prado',
+        'modo': 'p',
+        'interesses': ['Artes Plásticas'],
+    },
+    {
+        'nome': 'Ingrid',
+        'email': 'ingrid@cesar.school',
+        'senha': '123',
+        'bairro': 'Prado',
+        'modo': 'm',
+        'interesses': [
+            'Video Games',
+            'Livros',
+            'Música',
+            'Séries',
+        ],
+    },
 ]
 
 interesses = [
